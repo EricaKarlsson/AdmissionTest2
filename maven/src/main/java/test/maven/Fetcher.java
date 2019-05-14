@@ -12,10 +12,6 @@ import org.xml.sax.InputSource;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.SyndFeedInput;
 
-/**
- * Hello world!
- *
- */
 public class Fetcher {
 	public Fetcher() {
 
@@ -37,8 +33,7 @@ public class Fetcher {
 			feed = input.build(source);
 
 		} catch (Exception e) {
-			// LOG.error("Exception occured when building the feed object out of the url",
-			// e);
+			e.printStackTrace();
 		} finally {
 			if (is != null)
 				try {
@@ -48,7 +43,6 @@ public class Fetcher {
 					e.printStackTrace();
 				}
 		}
-		//System.out.println(feed);
 		return feed;
 	}
 }

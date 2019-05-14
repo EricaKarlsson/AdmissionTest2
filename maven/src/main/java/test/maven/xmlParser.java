@@ -1,5 +1,6 @@
 package test.maven;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,9 +16,7 @@ public class xmlParser {
 	public xmlParser(SyndFeed feed) {
 		this.feed = feed;
 		map = new LinkedHashMap<String, newsItem>();
-		//System.out.println(feed.getTitle());
-		//System.out.println(feed.getTitle());
-		recieveValues();	
+		recieveValues();
 	}
 	
 	public LinkedHashMap recieveValues() {
@@ -25,8 +24,7 @@ public class xmlParser {
         for(Object o : res) {
         	SyndEntryImpl object = ((SyndEntryImpl) o);
         	map.put(object.getTitle(), 
-        	new newsItem(object.getTitle(),object.getLink(),object.getDescription().getValue(),object.getUri()));
-        	//System.out.println(map.get(object.getTitle()).toString());
+        	new newsItem(object.getTitle(),object.getLink(),object.getDescription().getValue(),object.getPublishedDate().toString(),object.getAuthor()));
         }
         return map;
 	}
@@ -42,5 +40,4 @@ public class xmlParser {
 			System.out.println(key.getValue().toString());
 		}
 	}
-
 }

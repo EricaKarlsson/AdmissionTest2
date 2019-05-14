@@ -1,31 +1,18 @@
 package test.maven;
 
 public class newsItem {
-	String title, link, description, guid;
-	public newsItem(String title, String link, String description, String guid) {
+	public String title, link, description, pubDate, author;
+
+	public newsItem(String title, String link, String description, String pubDate, String author) {
 		this.title = title;
 		this.link = link;
 		this.description = description;
-		this.guid = guid;
+		this.pubDate = pubDate;
+		this.author = author;
 	}
-	
-	public void setTitle(String title) {
-		
+
+	public String toString() {
+		return "----------------------------\n" + title + "\n" + description + "\n" + link + "\n" + pubDate;
 	}
-public void setLink(String link) {
-		
-	}
-public void setDescription(String description) {
-	
-}
-public void setGuid(String guid) {
-	
-}
-public void setpubDate(String pubDate) {
-	
-}
-public String toString() {
-	return title + "\n" + description + "\n" + link + "\n" + guid;
-}
 
 }
